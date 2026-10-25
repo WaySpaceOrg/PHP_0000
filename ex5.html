@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>เครื่องคิด BMI</title>
+</head>
+<body>
+    <h1>เครื่องคิด BMI</h1>
+    <p>น้ำหนัก (กก.) <input id="weight" type="number"></p>
+    <p>ส่วนสูง (ซม.) <input id="height" type="number"></p>
+    <button id="calc">คำนวณ</button>
+    <p id="result"></p>
+
+    <script>
+        // เมื่อกดปุ่ม: อ่านค่า → คำนวณ → แสดงผลใน #result
+        document.getElementById('calc').addEventListener('click', function() {
+            // อ่านค่าจาก input
+            let weight = parseFloat(document.getElementById('weight').value);
+            let heightCm = parseFloat(document.getElementById('height').value);
+            let resultDisplay = document.getElementById('result');
+
+            // ตรวจสอบว่าช่องว่างหรือเป็น 0 หรือไม่
+            if (!weight || !heightCm || weight <= 0 || heightCm <= 0) {
+                resultDisplay.textContent = "กรุณากรอกน้ำหนักและส่วนสูง";
+                return;
+            }
+
+            // แปลงส่วนสูงจากเซนติเมตรเป็นเมตร
+            let heightM = heightCm / 100;
+            
+            // คำนวณ BMI
+            let bmi = weight / (heightM * heightM);
+            let category = "";
+
+            // ตัดสินกลุ่มจากค่าก่อนปัดเศษ
+            if (bmi < 18.5) {
+                category = "น้ำหนักน้อย";
+            } else if (bmi < 25) {
+                category = "ปกติ";
+            } else {
+                category = "น้ำหนักเกิน";
+            }
+
+            // แสดงผลลัพธ์โดยปัดเศษทศนิยม 1 ตำแหน่ง
+            resultDisplay.textContent = "BMI " + bmi.toFixed(1) + " (" + category + ")";
+        });
+    </script>
+</body>
+</html>
