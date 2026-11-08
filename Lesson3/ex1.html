@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="th">
-<head><meta charset="UTF-8"><title>JS ตัวแรก</title></head>
-<body>
-    <h1>ร้านกาแฟแมวเหมียว</h1>
-
-    <script>
-        const shop = "ร้านกาแฟแมวเหมียว";   // ไม่เปลี่ยน
-        let cups = 5;                        // เปลี่ยนได้
-
-        console.log("ร้าน: " + shop);
-        console.log("ขายไปแล้ว " + cups + " แก้ว");
-
-        cups = cups + 1;
-        console.log("ตอนนี้ " + cups + " แก้ว");   // ตอนนี้ 4 แก้ว
-    </script>
-</body>
-</html>
+<html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ตัวแปร JavaScript | Lesson 3</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:30px 16px;font-family:Tahoma,"Segoe UI",sans-serif;color:#51465a;background:linear-gradient(135deg,#fff0f6,#f3f0ff,#eefaff);min-height:100vh}.card{max-width:760px;margin:auto;padding:clamp(24px,5vw,42px);background:#fff;border-radius:26px;box-shadow:0 18px 50px #88749b18}.top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.tag{padding:8px 13px;border-radius:30px;background:#fff0f6;color:#a65d83;font-size:13px;font-weight:bold}a{color:#92718e;text-decoration:none;font-size:14px}h1{color:#765b7c;font-size:clamp(28px,5vw,38px);margin:22px 0 8px}.lead{color:#887e91;line-height:1.8}.code{background:#29263a;color:#f5eefa;padding:20px;border-radius:16px;line-height:1.9;overflow:auto;font:14px/1.9 Consolas,monospace}.result{padding:20px;margin-top:18px;border-radius:16px;background:#f5f1ff}.result h2{font-size:18px;margin:0 0 12px;color:#806b9b}.result p{margin:8px 0}.value{font-weight:bold;color:#a05d87}.hint{margin-top:18px;padding:14px;border-radius:13px;background:#fff6eb;color:#987b5d;font-size:14px}
+</style></head><body><main class="card"><div class="top"><span class="tag">LESSON 3 · แบบฝึกหัด 01</span><a href="index.html">← กลับหน้าบทเรียน</a></div>
+<h1>ตัวแปร JavaScript</h1><p class="lead">ตัวแปรใช้สำหรับเก็บข้อมูล เช่น ข้อความและตัวเลข โดย <b>const</b> ใช้กับค่าที่ไม่กำหนดใหม่ และ <b>let</b> ใช้กับค่าที่เปลี่ยนแปลงได้</p>
+<div class="code"><div>const shop = "ร้านกาแฟแมวเหมียว";</div><div>let cups = 5;</div><div>cups = cups + 1;</div><div>console.log(shop);</div><div>console.log(cups);</div></div>
+<section class="result"><h2>ผลลัพธ์จากตัวแปร</h2><p>ชื่อร้าน: <span class="value" id="shop"></span></p><p>จำนวนแก้วเริ่มต้น: <span class="value">5</span> แก้ว</p><p>หลังเพิ่มอีก 1 แก้ว: <span class="value" id="cups"></span> แก้ว</p></section>
+<div class="hint">💡 ลองเปิด Developer Tools แล้วเลือก Console เพื่อดูผลจากคำสั่ง console.log()</div>
+<a href="../index.html" style="display:inline-block;margin-top:22px">← กลับหน้าหลัก</a></main>
+<script>
+const shop = "ร้านกาแฟแมวเหมียว";
+let cups = 5;
+document.getElementById("shop").textContent = shop;
+console.log("ร้าน: " + shop);
+console.log("ขายไปแล้ว " + cups + " แก้ว");
+cups = cups + 1;
+document.getElementById("cups").textContent = cups;
+console.log("ตอนนี้ " + cups + " แก้ว");
+</script></body></html>
