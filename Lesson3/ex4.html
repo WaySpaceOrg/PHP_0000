@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <button id="shake">เขย่าเซียมซี</button>
-<p id="fortune"></p>
-
+<html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>เขย่าเซียมซี | Lesson 3</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px 16px;font-family:Tahoma,"Segoe UI",sans-serif;color:#51465a;background:linear-gradient(135deg,#fff5e9,#fff0f6,#f4f0ff)}.card{width:min(650px,100%);padding:clamp(25px,5vw,42px);background:#fff;border-radius:28px;box-shadow:0 18px 50px #9b789718;text-align:center}.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;text-align:left}.tag{padding:8px 12px;border-radius:30px;background:#fff4e8;color:#a47b50;font-size:13px;font-weight:bold}a{color:#92718e;text-decoration:none;font-size:14px}h1{font-size:clamp(28px,5vw,38px);color:#9a765f;margin:25px 0 8px}.desc{color:#887e91;line-height:1.7}.jar{font-size:90px;margin:22px auto;display:inline-block}.jar.shake{animation:shake .6s ease}@keyframes shake{0%,100%{transform:rotate(0)}20%{transform:rotate(-15deg)}40%{transform:rotate(15deg)}60%{transform:rotate(-12deg)}80%{transform:rotate(10deg)}}button{padding:14px 28px;border:0;border-radius:30px;background:#f4ddc8;color:#8e684e;font:inherit;font-weight:bold;cursor:pointer}.fortune{margin-top:22px;padding:22px;border-radius:18px;background:#fff8ef;min-height:120px;display:grid;place-content:center}.fortune small{color:#a88970}.fortune strong{font-size:23px;color:#9a765f;margin-top:8px}.sub{color:#a18da1;font-size:13px;margin-top:17px}
+</style></head><body><main class="card"><div class="top"><span class="tag">LESSON 3 · แบบฝึกหัด 04</span><a href="index.html">← กลับหน้าบทเรียน</a></div>
+<h1>🔮 เขย่าเซียมซี</h1><p class="desc">ตั้งจิตอธิษฐานเบา ๆ แล้วกดปุ่มเพื่อสุ่มคำทำนาย</p>
+<div class="jar" id="jar" aria-hidden="true">🎋</div><br><button id="shake" type="button">เขย่าเซียมซี</button>
+<section class="fortune" aria-live="polite"><small id="number">รอรับคำทำนาย</small><strong id="message">ขอให้วันนี้เป็นวันที่ดี ✨</strong></section>
+<p class="sub">คำทำนายเพื่อความบันเทิงเท่านั้น ♡</p><a href="../index.html">← กลับหน้าหลัก</a></main>
 <script>
-    const fortunes = ["โชคดีมาก", "โชคดี", "เฉยๆ", "ระวังตัว", "รอก่อน"];
-
-    document.getElementById("shake").addEventListener("click", function () {
-        const i = Math.floor(Math.random() * fortunes.length);   // 0–4
-        document.getElementById("fortune").textContent = "ใบที่ " + (i + 1) + ": " + fortunes[i];
-    });
-
-    // สลับโหมดกลางคืน
-    // document.body.classList.toggle("dark");
-</script>
-</body>
-</html>
+const fortunes = [
+ {text:"โชคดีมาก มีโอกาสได้รับข่าวดี",tip:"ยิ้มรับโอกาสใหม่ ๆ"},
+ {text:"โชคดีกำลังเข้ามา",tip:"ลงมือทำสิ่งที่ตั้งใจ"},
+ {text:"สิ่งที่หวังค่อย ๆ เป็นจริง",tip:"อดทนและให้เวลากับตัวเอง"},
+ {text:"วันนี้เหมาะกับการเริ่มต้น",tip:"ลองทำสิ่งใหม่ที่สนใจ"},
+ {text:"พักผ่อนบ้างแล้วทุกอย่างจะดีขึ้น",tip:"อย่าลืมดูแลตัวเอง"}
+];
+const jar = document.getElementById("jar");
+document.getElementById("shake").addEventListener("click",function(){
+ jar.classList.remove("shake");
+ void jar.offsetWidth;
+ jar.classList.add("shake");
+ const i = Math.floor(Math.random() * fortunes.length);
+ document.getElementById("number").textContent = "เซียมซีใบที่ " + (i+1);
+ document.getElementById("message").textContent = fortunes[i].text + " — " + fortunes[i].tip;
+});
+</script></body></html>
