@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ฝึกใช้ Semantic HTML ตาราง ฟอร์ม และเมนูนำทาง">
+<title>Lesson2 | โครงสร้างและองค์ประกอบเว็บไซต์</title>
+<style>
+:root{--accent:#b9dff3;--tint:#eff9ff;--ink:#51465a;--muted:#897e91}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:"Segoe UI",Tahoma,sans-serif;color:var(--ink);background:radial-gradient(circle at 5% 5%,var(--tint),transparent 25rem),linear-gradient(145deg,#fffafd,#f7f6ff 65%,#f3faff)}
+a{color:inherit}.wrap{width:min(920px,calc(100% - 32px));margin:auto;padding:25px 0 40px}
+nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.brand{font-weight:850;color:#80627f;text-decoration:none}.navlinks{display:flex;gap:8px;flex-wrap:wrap}
+.navlinks a{padding:8px 12px;border-radius:999px;text-decoration:none;font-size:.88rem;color:#82748c;background:#ffffffc9;border:1px solid #eee5f0}
+.navlinks a.active{background:var(--tint);border-color:var(--accent);font-weight:800}
+.hero{padding:clamp(25px,5vw,42px);border-radius:28px;background:linear-gradient(120deg,var(--tint),#fff 90%);border:1px solid white;box-shadow:0 15px 40px #9f7c9d18}
+.tag{display:inline-block;padding:7px 12px;border-radius:999px;background:#ffffffc9;color:#806b8e;font-size:.82rem;font-weight:800}
+h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;margin:17px 0 10px;color:#66516f}
+.hero p{margin:0;color:var(--muted);line-height:1.8}
+.section-title{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:32px 0 15px}
+.section-title h2{margin:0;font-size:1.35rem;color:#705875}.section-title span{font-size:.9rem;color:var(--muted)}
+.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.exercise{display:flex;align-items:center;gap:14px;min-height:100px;padding:17px;border-radius:19px;background:#ffffffdc;border:1px solid white;text-decoration:none;box-shadow:0 9px 24px #9f7c9d10;transition:.2s}
+.exercise:hover{transform:translateY(-3px);box-shadow:0 14px 28px #9f7c9d20}
+.number{display:grid;place-items:center;flex:0 0 43px;height:43px;border-radius:14px;background:var(--tint);color:#806b8e;font-weight:900}
+.exercise-copy{display:grid;gap:5px;min-width:0}.exercise-copy strong{font-size:1rem}.exercise-copy small{font-size:.82rem;line-height:1.5;color:var(--muted)}
+.arrow{margin-left:auto;color:#a07b9a;font-size:1.15rem}
+.back{display:inline-block;margin-top:24px;color:#9b6689;font-weight:800;text-decoration:none}
+footer{text-align:center;padding:30px 0 0;color:#a18da1;font-size:.85rem}
+@media(max-width:620px){.list{grid-template-columns:1fr}.section-title{align-items:flex-start;flex-direction:column}.wrap{width:calc(100% - 24px)}}
+</style>
+</head>
+<body><main class="wrap">
+<nav><a class="brand" href="../index.html">♡ My Coding Space</a><div class="navlinks">
+      <a  href="../Lesson1/index.html">Lesson1</a>
+      <a class="active" href="../Lesson2/index.html">Lesson2</a>
+      <a  href="../Lesson3/index.html">Lesson3</a>
+</div></nav>
+<header class="hero"><span class="tag">LEARNING PATH · LESSON2</span><h1>โครงสร้างและองค์ประกอบเว็บไซต์</h1><p>ฝึกใช้ Semantic HTML ตาราง ฟอร์ม และเมนูนำทาง</p></header>
+<section aria-labelledby="exercise-title"><div class="section-title"><h2 id="exercise-title">แบบฝึกหัดในบทเรียน</h2><span>6 แบบฝึกหัด</span></div><div class="list">
+      <a class="exercise" href="ex1.html">
+        <span class="number">01</span>
+        <span class="exercise-copy"><strong>โปรไฟล์ของฉัน</strong><small>ฝึกใช้ header, nav, main, section และ footer</small></span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="exercise" href="ex2.html">
+        <span class="number">02</span>
+        <span class="exercise-copy"><strong>เมนูอาหาร</strong><small>ฝึกสร้างตารางเมนูอาหาร</small></span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="exercise" href="ex3.html">
+        <span class="number">03</span>
+        <span class="exercise-copy"><strong>แบบฟอร์มจองโต๊ะ</strong><small>ฝึกสร้างฟอร์มรับข้อมูลการจอง</small></span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="exercise" href="ex4.html">
+        <span class="number">04</span>
+        <span class="exercise-copy"><strong>เว็บไซต์คาเฟ่แมวเหมียว</strong><small>ฝึกแบ่งเนื้อหาเว็บไซต์เป็นส่วนต่าง ๆ</small></span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="exercise" href="ex5.html">
+        <span class="number">05</span>
+        <span class="exercise-copy"><strong>เมนูหลักและแผนผังเว็บไซต์</strong><small>ฝึกสร้าง Navigation และ Sitemap</small></span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="exercise" href="ex6.html">
+        <span class="number">06</span>
+        <span class="exercise-copy"><strong>บ้านแมวเหมียว</strong><small>ฝึกใช้รูปภาพ รายการ และฟอร์ม</small></span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+</div></section>
+<a class="back" href="../index.html">← กลับไปหน้าหลัก</a>
+<footer>Made with ♡ · Keep Learning, Keep Coding</footer>
+</main></body></html>
