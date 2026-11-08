@@ -1,46 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>จองโต๊ะ</title>
-</head>
-<body>
-    <form action="booking.php" method="post">
-    
-    <label for="name">ชื่อผู้จอง</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="phone">เบอร์โทร</label>
-    <input type="tel" id="phone" name="phone">
-
-    <label for="date">วันที่</label>
-    <input type="date" id="date" name="date" required>
-
-    <label for="guests">จำนวนคน</label>
-    <input type="number" id="guests" name="guests" min="1" max="10">
-
-    <label>โซน</label>
-    <input type="radio" id="zone_indoor" name="zone" value="ในร้าน">
-    <label for="zone_indoor">ในร้าน</label>
-    <input type="radio" id="zone_outdoor" name="zone" value="ริมน้ำ">
-    <label for="zone_outdoor">ริมน้ำ</label>
-
-    <label for="time">รอบเวลา</label>
-    <select id="time" name="time">
-        <option value="เช้า">เช้า</option>
-        <option value="กลางวัน">กลางวัน</option>
-        <option value="เย็น">เย็น</option>
-    </select>
-
-    <input type="checkbox" id="birthday" name="birthday" value="ใช่">
-    <label for="birthday">มาฉลองวันเกิด</label>
-
-    <label for="note">หมายเหตุ</label>
-    <textarea id="note" name="note"></textarea>
-
-    <button type="submit">จองโต๊ะ</button>
-    
-</form>
-</body>
-</html>
+<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>แบบฟอร์มจองโต๊ะ | Lesson 2</title><style>
+*{box-sizing:border-box}body{margin:0;padding:28px 16px;font-family:Tahoma,"Segoe UI",sans-serif;color:#51465a;background:linear-gradient(135deg,#eff9ff,#f5f1ff,#fff2f7)}.form-card{max-width:650px;margin:auto;padding:clamp(23px,5vw,42px);background:#fff;border-radius:27px;box-shadow:0 18px 50px #718aa018}.top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.top a{color:#92718e;text-decoration:none;font-size:14px}.tag{display:inline-block;margin-top:22px;padding:8px 13px;border-radius:30px;background:#edf7ff;color:#6689a1;font-size:13px;font-weight:bold}h1{color:#647e9c;font-size:clamp(28px,5vw,38px);margin:15px 0 8px}.desc{color:#93879a;line-height:1.7;margin-bottom:24px}label,.field-title{display:block;margin:15px 0 8px;font-size:14px;font-weight:bold;color:#75677d}input,select,textarea{width:100%;padding:13px 14px;border:1px solid #e6e4ee;border-radius:12px;font:inherit;color:#51465a;background:#fff}input:focus,select:focus,textarea:focus{outline:3px solid #e9f5ff;border-color:#a9cde3}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.choices{display:flex;gap:18px;flex-wrap:wrap;padding:12px 0}.choices label,.check{display:flex;align-items:center;gap:8px;margin:0;font-weight:normal}.choices input,.check input{width:auto}.submit{width:100%;border:0;border-radius:13px;padding:14px;margin-top:22px;background:linear-gradient(90deg,#cde8f6,#e5dafa);color:#5d6078;font:inherit;font-weight:bold;cursor:pointer}.notice{margin-top:16px;color:#8b8192;font-size:13px;line-height:1.6}#result{display:none;margin-top:18px;padding:14px;border-radius:13px;background:#eff9f1;color:#527b5b;line-height:1.6}@media(max-width:560px){.grid{grid-template-columns:1fr}}
+</style></head><body><main class="form-card"><div class="top"><a href="../index.html">♡ My Coding Space</a><a href="index.html">← กลับ Lesson 2</a></div><span class="tag">TABLE RESERVATION</span><h1>จองโต๊ะล่วงหน้า</h1><p class="desc">กรอกข้อมูลเพื่อจำลองการจองโต๊ะที่คาเฟ่ เลือกวัน เวลา และโซนที่ต้องการ</p><form id="bookingForm"><div class="grid"><div><label for="name">ชื่อผู้จอง *</label><input id="name" name="name" type="text" placeholder="ชื่อ-นามสกุล" required></div><div><label for="phone">เบอร์โทรศัพท์ *</label><input id="phone" name="phone" type="tel" placeholder="08X-XXX-XXXX" pattern="[0-9+() -]{9,15}" required></div><div><label for="date">วันที่จอง *</label><input id="date" name="date" type="date" required></div><div><label for="guests">จำนวนผู้เข้าร่วม *</label><input id="guests" name="guests" type="number" min="1" max="10" value="2" required></div></div><span class="field-title">เลือกโซนที่นั่ง</span><div class="choices"><label><input type="radio" name="zone" value="ในร้าน" checked> ในร้าน</label><label><input type="radio" name="zone" value="ระเบียงสวน"> ระเบียงสวน</label></div><label for="time">รอบเวลา</label><select id="time" name="time"><option>09:00 น.</option><option>11:00 น.</option><option>13:00 น.</option><option>15:00 น.</option><option>17:00 น.</option></select><label class="check"><input type="checkbox" name="birthday" value="yes"> มาฉลองวันเกิด</label><label for="note">หมายเหตุเพิ่มเติม</label><textarea id="note" name="note" rows="3" placeholder="เช่น ต้องการเก้าอี้เด็ก"></textarea><button class="submit" type="submit">ยืนยันการจองตัวอย่าง</button></form><div id="result" role="status" aria-live="polite"></div><p class="notice">หมายเหตุ: แบบฟอร์มนี้เป็นตัวอย่างฝึก HTML และ JavaScript ไม่ได้ส่งข้อมูลไปยังร้านหรือบันทึกการจองจริง</p></main><script>
+const dateInput=document.getElementById("date");const today=new Date();dateInput.min=[today.getFullYear(),String(today.getMonth()+1).padStart(2,"0"),String(today.getDate()).padStart(2,"0")].join("-");
+document.getElementById("bookingForm").addEventListener("submit",function(e){e.preventDefault();const d=new FormData(this);const out=document.getElementById("result");out.style.display="block";out.textContent="รับข้อมูลตัวอย่างแล้ว: คุณ "+d.get("name")+" จอง "+d.get("guests")+" ที่นั่ง วันที่ "+d.get("date")+" เวลา "+d.get("time")+" โซน"+d.get("zone")+" (ยังไม่ใช่การจองจริง)";});
+</script></body></html>
