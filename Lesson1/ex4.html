@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ฟอร์มเข้าสู่ระบบ</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ฟอร์มเข้าสู่ระบบ | Lesson 1</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px 16px;font-family:Tahoma,"Segoe UI",sans-serif;color:#51465a;background:linear-gradient(135deg,#fff0f6,#f2f1ff,#eefaff)}.login{width:min(440px,100%);padding:clamp(24px,5vw,38px);background:#fff;border:1px solid #fff;border-radius:26px;box-shadow:0 18px 55px #88749b20}.top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.top a{font-size:13px;color:#92718e;text-decoration:none}.icon{width:68px;height:68px;margin:22px auto 12px;display:grid;place-items:center;border-radius:22px;background:#fce7f0;font-size:32px}h1{text-align:center;color:#765b7c;margin:8px 0}.sub{text-align:center;color:#93879a;font-size:14px;line-height:1.7;margin-bottom:24px}label{display:block;margin:16px 0 8px;font-size:14px;font-weight:bold;color:#75677d}input{width:100%;padding:14px;border:1px solid #e9e1ed;border-radius:13px;font:inherit;outline:none}input:focus{border-color:#d99fbe;box-shadow:0 0 0 3px #fceaf2}button{width:100%;border:0;border-radius:14px;padding:14px;margin-top:22px;background:linear-gradient(90deg,#efc5d8,#d9d0f3);color:#5d5069;font:inherit;font-weight:bold;cursor:pointer}button:hover{filter:brightness(.98)}.notice{margin-top:17px;text-align:center;color:#a18da1;font-size:12px;line-height:1.6}.back{display:block;text-align:center;margin-top:20px;color:#92718e;text-decoration:none;font-size:14px}
+</style>
 </head>
-<body>
-    <form action="" method="POST">
-  <label>email</label>
-  <input type="email" name="email">
-  <label>password</label>
-	<input type="password">
-  <button type="submit">ส่งฟอร์ม</button>
+<body><main class="login">
+<div class="top"><span>♡ MY CODING SPACE</span><a href="../index.html">หน้าหลัก</a></div>
+<div class="icon" aria-hidden="true">🔐</div><h1>ยินดีต้อนรับ</h1><p class="sub">เข้าสู่ระบบเพื่อเริ่มต้นใช้งาน<br>กรอกอีเมลและรหัสผ่านของคุณ</p>
+<form id="loginForm">
+<label for="email">อีเมล</label><input id="email" name="email" type="email" placeholder="name@example.com" autocomplete="username" required>
+<label for="password">รหัสผ่าน</label><input id="password" name="password" type="password" placeholder="กรอกรหัสผ่าน" autocomplete="current-password" required minlength="4">
+<button type="submit">เข้าสู่ระบบ</button>
 </form>
-</body>
-</html>
+<p class="notice" id="message" aria-live="polite">แบบฟอร์มตัวอย่างเพื่อฝึก HTML เท่านั้น ไม่มีการส่งหรือจัดเก็บรหัสผ่าน</p>
+<a class="back" href="index.html">← กลับไปหน้า Lesson 1</a>
+</main>
+<script>
+document.getElementById("loginForm").addEventListener("submit",function(event){
+ event.preventDefault();
+ document.getElementById("message").textContent="ส่งข้อมูลตัวอย่างเรียบร้อย (ยังไม่ได้เชื่อมต่อระบบบัญชีผู้ใช้)";
+});
+</script>
+</body></html>
