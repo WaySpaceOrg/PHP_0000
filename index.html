@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff5f8">
+  <meta name="description" content="พื้นที่รวบรวมบทเรียน Web Development และ PHP ของ WaySpaceOrg">
+  <title>My Coding Space | PHP_0000</title>
+  <style>
+    :root {
+      --ink: #51465a;
+      --muted: #897e91;
+      --pink: #f4a9c5;
+      --pink-dark: #bd668d;
+      --lavender: #c9b8f1;
+      --blue: #b9dff3;
+      --yellow: #f7dfaa;
+      --paper: #fffdfd;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background:
+        radial-gradient(circle at 8% 8%, #ffe1ec 0, transparent 23rem),
+        radial-gradient(circle at 95% 22%, #e5f4ff 0, transparent 25rem),
+        linear-gradient(145deg, #fff9fb, #f8f6ff 55%, #f4fbff);
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(1080px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 28px 0 34px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      color: #9e5f80;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      background: #ffe3ee;
+      font-size: 22px;
+      box-shadow: 0 7px 18px #e9b7cc55;
+    }
+
+    .top-link {
+      text-decoration: none;
+      color: #8d6b83;
+      font-size: .92rem;
+      font-weight: 700;
+      padding: 10px 15px;
+      border: 1px solid #efdce7;
+      border-radius: 999px;
+      background: #ffffffa8;
+      transition: .2s ease;
+    }
+
+    .top-link:hover { transform: translateY(-2px); background: white; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 5vw, 52px);
+      border: 1px solid #ffffff;
+      border-radius: 30px;
+      background: linear-gradient(120deg, #ffe8f0, #f1eaff 58%, #e8f6ff);
+      box-shadow: 0 18px 50px #9f7c9d18;
+    }
+
+    .hero::after {
+      content: "✿";
+      position: absolute;
+      right: 5%;
+      top: 2%;
+      color: #ffffffa8;
+      font-size: clamp(100px, 19vw, 190px);
+      line-height: 1;
+      transform: rotate(16deg);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: #a45d80;
+      background: #ffffffb8;
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    h1 {
+      max-width: 650px;
+      margin: 18px 0 12px;
+      color: #684e70;
+      font-size: clamp(2.15rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+    }
+
+    .hero p {
+      max-width: 590px;
+      margin: 0;
+      color: #796b82;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 25px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 11px 17px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .button:hover { transform: translateY(-3px); }
+    .button-primary {
+      color: white;
+      background: #c9789b;
+      box-shadow: 0 8px 18px #c9789b40;
+    }
+    .button-soft { color: #806b8e; background: #ffffffc9; }
+
+    .section { margin-top: 38px; }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 17px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: #705875;
+      font-size: clamp(1.35rem, 3vw, 1.75rem);
+    }
+
+    .section-heading p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .owner-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 17px;
+      padding: 21px;
+      border: 1px solid #fff;
+      border-radius: 22px;
+      background: #ffffffc9;
+      box-shadow: 0 12px 32px #9f7c9d12;
+    }
+
+    .owner-icon {
+      display: grid;
+      place-items: center;
+      width: 62px;
+      height: 62px;
+      border-radius: 20px;
+      background: #f0eaff;
+      font-size: 29px;
+    }
+
+    .owner-card h3 { margin: 0 0 5px; font-size: 1.08rem; }
+    .owner-card p { margin: 0; color: var(--muted); line-height: 1.6; font-size: .92rem; }
+    .owner-link {
+      color: #a45d80;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .owner-link:hover { text-decoration: underline; }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .lesson-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+      padding: 21px;
+      border: 1px solid #ffffff;
+      border-radius: 23px;
+      background: #ffffffd9;
+      box-shadow: 0 12px 30px #9f7c9d12;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .lesson-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 34px #9f7c9d20;
+    }
+
+    .lesson-card.pink { --accent: #c16e91; --tint: #ffe7f0; }
+    .lesson-card.blue { --accent: #5e91b2; --tint: #e5f4fc; }
+    .lesson-card.purple { --accent: #8b73b8; --tint: #f0eaff; }
+
+    .lesson-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .lesson-number {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      color: var(--accent);
+      background: var(--tint);
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .lesson-flower { color: var(--accent); font-size: 1.45rem; }
+    .lesson-card h3 { margin: 17px 0 7px; color: #65556e; font-size: 1.2rem; }
+    .lesson-card p { margin: 0 0 19px; color: var(--muted); font-size: .92rem; line-height: 1.65; }
+
+    .lesson-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      width: fit-content;
+      margin-top: auto;
+      color: var(--accent);
+      font-weight: 900;
+      text-decoration: none;
+    }
+    .lesson-link:hover { gap: 12px; }
+
+    .note {
+      margin-top: 24px;
+      padding: 17px 20px;
+      border: 1px dashed #e8d7e6;
+      border-radius: 18px;
+      color: #84778d;
+      background: #ffffff8c;
+      line-height: 1.7;
+      font-size: .9rem;
+    }
+
+    footer {
+      padding: 30px 10px 4px;
+      color: #a18da1;
+      text-align: center;
+      font-size: .86rem;
+    }
+
+    @media (max-width: 760px) {
+      .lesson-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .owner-card { grid-template-columns: auto 1fr; }
+      .owner-link { grid-column: 2; }
+    }
+
+    @media (max-width: 520px) {
+      .page { width: min(100% - 24px, 1080px); padding-top: 17px; }
+      .topbar { align-items: flex-start; }
+      .brand { font-size: .92rem; }
+      .top-link { padding: 9px 11px; font-size: .8rem; }
+      .hero { border-radius: 23px; }
+      .lesson-grid { grid-template-columns: 1fr; }
+      .lesson-card { min-height: 190px; }
+      .owner-card { gap: 12px; padding: 16px; }
+      .owner-icon { width: 52px; height: 52px; border-radius: 16px; }
+      .section-heading { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="topbar" aria-label="เมนูหลัก">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">♡</span> My Coding Space</div>
+      <a class="top-link" href="https://github.com/WaySpaceOrg/PHP_0000" target="_blank" rel="noopener noreferrer">เปิด Repository ↗</a>
+    </nav>
+
+    <header class="hero">
+      <span class="eyebrow">✦ WELCOME TO MY LEARNING SPACE ✦</span>
+      <h1>เรียนรู้โค้ด<br>เติบโตไปทีละบท 🌷</h1>
+      <p>พื้นที่รวบรวมบทเรียนและแบบฝึกหัดเกี่ยวกับการพัฒนาเว็บไซต์และ PHP มาเริ่มเรียนรู้ไปพร้อมกันนะ!</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#lessons">เริ่มสำรวจบทเรียน <span aria-hidden="true">→</span></a>
+        <a class="button button-soft" href="https://github.com/WaySpaceOrg" target="_blank" rel="noopener noreferrer">รู้จักเจ้าของ Repository</a>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="owner-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="owner-title">เจ้าของพื้นที่นี้ <span aria-hidden="true">💗</span></h2>
+          <p>ข้อมูล Repository และผู้ดูแล</p>
+        </div>
+      </div>
+      <div class="owner-card">
+        <div class="owner-icon" aria-hidden="true">⌘</div>
+        <div>
+          <h3>WaySpaceOrg</h3>
+          <p>เจ้าของ Repository · PHP_0000<br>สำหรับเรียนเขียน Web และ PHP</p>
+        </div>
+        <a class="owner-link" href="https://github.com/WaySpaceOrg" target="_blank" rel="noopener noreferrer">ดูโปรไฟล์ GitHub ↗</a>
+      </div>
+    </section>
+
+    <section class="section" id="lessons" aria-labelledby="lessons-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="lessons-title">เลือกบทเรียนที่อยากเรียน <span aria-hidden="true">📚</span></h2>
+          <p>กดที่การ์ดเพื่อเปิดดูไฟล์ทั้งหมดภายในแต่ละ Lesson</p>
+        </div>
+      </div>
+
+      <div class="lesson-grid">
+        <article class="lesson-card pink">
+          <div class="lesson-top">
+            <span class="lesson-number">01</span>
+            <span class="lesson-flower" aria-hidden="true">🌸</span>
+          </div>
+          <h3>Lesson 1</h3>
+          <p>บทเรียนชุดที่ 1 รวมตัวอย่างและแบบฝึกหัดสำหรับเริ่มต้นเรียนรู้</p>
+          <a class="lesson-link" href="https://github.com/WaySpaceOrg/PHP_0000/tree/main/Lesson1" target="_blank" rel="noopener noreferrer">เข้าสู่ Lesson 1 <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="lesson-card blue">
+          <div class="lesson-top">
+            <span class="lesson-number">02</span>
+            <span class="lesson-flower" aria-hidden="true">🫧</span>
+          </div>
+          <h3>Lesson 2</h3>
+          <p>บทเรียนชุดที่ 2 สำหรับฝึกฝนและทดลองเขียนโค้ดเพิ่มเติม</p>
+          <a class="lesson-link" href="https://github.com/WaySpaceOrg/PHP_0000/tree/main/Lesson2" target="_blank" rel="noopener noreferrer">เข้าสู่ Lesson 2 <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="lesson-card purple">
+          <div class="lesson-top">
+            <span class="lesson-number">03</span>
+            <span class="lesson-flower" aria-hidden="true">🦄</span>
+          </div>
+          <h3>Lesson 3</h3>
+          <p>บทเรียนชุดที่ 3 พร้อมตัวอย่างโค้ดให้ศึกษาและนำไปฝึกทำ</p>
+          <a class="lesson-link" href="https://github.com/WaySpaceOrg/PHP_0000/tree/main/Lesson3" target="_blank" rel="noopener noreferrer">เข้าสู่ Lesson 3 <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+
+      <div class="note">
+        ✨ <strong>Learning tip:</strong> สามารถเพิ่มการ์ด Lesson ใหม่ในหน้านี้ได้เมื่อมีการเพิ่มโฟลเดอร์บทเรียนใน Repository เพื่อให้ทุกบทเรียนเข้าถึงได้จากหน้าแรก
+      </div>
+    </section>
+
+    <footer>Made with ♡ · Keep Learning, Keep Coding · WaySpaceOrg / PHP_0000</footer>
+  </main>
+</body>
+</html>
